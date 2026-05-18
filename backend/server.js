@@ -8,7 +8,7 @@ const achievRouter     = require('./routes/achievements');
 const profileRouter    = require('./routes/profile');
 
 const app  = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -29,7 +29,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Lỗi server nội bộ' });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0",() => {
   console.log(`✅ Server đang chạy tại http://localhost:${PORT}`);
 });
-
